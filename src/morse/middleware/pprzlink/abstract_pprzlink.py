@@ -58,11 +58,11 @@ class PprzlinkActuator(PprzlinkDatastream):
             if self._msg is None:
                 self._msg = msg
 
-        self._interface.subscribe(msg_callback, regex=('(^'+str(self.ac_id)+' '+self.msg_name+' .*)'))
+        self._interface.subscribe(msg_callback, regex_or_msg=('(^'+str(self.ac_id)+' '+self.msg_name+' .*)'))
 
     def process_msg(self):
         """
-        The process_msg must be overriden. It should convert mavlink
+        The process_msg must be overriden. It should convert pprzlink
         format into the internal Morse format. The last pprzlink message
         is stored in self._msg.
         """
